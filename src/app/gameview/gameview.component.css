@@ -1,11 +1,30 @@
 .gameview {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 250px;
 }
 
-.cell {
+.box {
   width: 50px;
   height: 50px;
-  background-color: aqua;
-  border: 1px solid black;
+  background-color: darkblue;
+  border: 1px solid white;
+}
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.startBtn {
+  border-radius: 4px;
+  margin-left: 500px;
+  margin-top: 10%;
 }

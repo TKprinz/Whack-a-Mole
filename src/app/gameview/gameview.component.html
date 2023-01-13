@@ -3,34 +3,26 @@
 <div>Time remaining: {{ _gameLogic.timeLeft }}</div>
 <!-- Knapp för att starta spelet. När knappen trycks på, anropas en funktion från _gameLogic service som startar spelet och sätter clockStarted till true, knappen är också inaktiverad när spelet redan har startat. -->
 <button
-  class="btn btn-primary"
-  (click)="(_gameLogic.timeLeft)"
+  class="startBtn"
+  (click)="_gameLogic.startClock()"
   [disabled]="_gameLogic.clockStarted"
 >
   Start
-</button>
-<!-- Knapp för att stoppa spelet. När knappen trycks på, anropas en funktion från _gameLogic service som avslutar spelet och sätter clockStarted till false, knappen är också inaktiverad när spelet inte har startat. -->
-<button
-  class="btn btn-primary"
-  (click)="(_gameLogic.timeLeft)"
-  [disabled]="!_gameLogic.clockStarted"
->
-  Stop
 </button>
 <!-- Tid som återstår i spelet i sekunder. -->
 <div>{{ _gameLogic.timeRemains }}</div>
 <!-- Resultatet av spelet -->
 <div>{{ _gameLogic.result }}</div>
-<!-- Tom div som visar gameview -->
 <div class="board"></div>
-<!-- Container för spelets spelplan, där varje ruta i spelet visas. -->
 <div class="gameview">
   <!-- Loopar igenom varje rad i spelets spelplan, som hämtas från _gameLogic service. -->
   <div class="row" *ngFor="let row of _gameLogic.EventGrid; let i = index">
-    <!-- Loopar igenom varje cell i raden. -->
-    <div class="cell" *ngFor="let image of row; let x = index">
+    <!-- Loopar igenom varje box i raden. -->
+    <div class="box" *ngFor="let img of row; let x = index">
       <!-- Knapp som representerar en mole i varje cell. När knappen trycks på ska spelaren få poäng och molen ska försvinna. -->
-      <button class="btnClick">Mole</button>
+      <button class="button" *ngIf="img" (click)="_gameLogic.moleClick(i, x)">
+        <img [src]="img" />
+      </button>
     </div>
   </div>
 </div>
