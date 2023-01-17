@@ -12,7 +12,7 @@ import { interval } from 'rxjs';                             // Import för att 
 export class GamelogicService {
 
   constructor() {                                           // Konstruktorn startar en timer och kallar på "randomizeBox()" när klockan har startat.
-    interval(Math.random() * 800 + 200).subscribe(() => {   // Intervalen kontrollerar hur snabbt moles ska poppa upp, använder math.random() för att få en slummässigt tal mellan 800ms och 400ms. Där molen sedan visas.   
+    interval(Math.random() * 800 + 200).subscribe(() => {   // Intervalen kontrollerar hur snabbt moles ska poppa upp, använder math.random() för att få en slumpmässigt tal mellan 800ms och 200ms. Där molen sedan visas.   
       if (this.clockStarted) {
         this.randomizeBox();
       }
