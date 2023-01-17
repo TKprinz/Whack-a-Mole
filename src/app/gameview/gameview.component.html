@@ -1,19 +1,17 @@
-<!-- visar tid som återstår i spelet med hjälp av en variabel från _gameLogic
-    service. -->
-<div>Time remaining: {{ _gameLogic.timeLeft }}</div>
+<h1 class="rubrik">Whack a Mole</h1>
 <!-- Knapp för att starta spelet. När knappen trycks på, anropas en funktion från _gameLogic service som startar spelet och sätter clockStarted till true, knappen är också inaktiverad när spelet redan har startat. -->
 <button
   class="startBtn"
   (click)="_gameLogic.startClock()"
   [disabled]="_gameLogic.clockStarted"
 >
-  Start
+  Starta spel
 </button>
 <!-- Tid som återstår i spelet i sekunder. -->
-<div>{{ _gameLogic.timeRemains }}</div>
+<div class="time">Tid återstår: {{ _gameLogic.timeLeft }}</div>
 <!-- Resultatet av spelet -->
-<div>{{ _gameLogic.result }}</div>
-<div class="board"></div>
+<div class="score">Poäng: {{ _gameLogic.result }}</div>
+<!-- Visar spelbrädan -->
 <div class="gameview">
   <!-- Loopar igenom varje rad i spelets spelplan, som hämtas från _gameLogic service. -->
   <div class="row" *ngFor="let row of _gameLogic.EventGrid; let i = index">

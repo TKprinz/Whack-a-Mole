@@ -1,14 +1,22 @@
+.rubrik {
+  font-family: monospace;
+  justify-content: center;
+  display: flex;
+  margin-top: 150px;
+  font-size: 40px;
+}
+
 .gameview {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 250px;
+  margin-top: 40px;
 }
 
 .box {
   width: 50px;
   height: 50px;
-  background-color: darkblue;
+  background-color: purple;
   border: 1px solid white;
 }
 .box img {
@@ -26,5 +34,18 @@
 .startBtn {
   border-radius: 4px;
   margin-left: 500px;
-  margin-top: 10%;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  font-family: monospace;
+}
+
+.score {
+  margin-left: 500px;
+  font-family: monospace;
+  margin-top: 10px;
+}
+
+.time {
+  margin-left: 500px;
+  font-family: monospace;
 }
