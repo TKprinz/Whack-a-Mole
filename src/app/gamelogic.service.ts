@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { interval } from 'rxjs';                              // Import för att kunna använda servicen i komponenter.
+import { interval } from 'rxjs';                             // Import för att kunna använda servicen i komponenter.
 
 
 @Injectable({
@@ -12,7 +12,7 @@ import { interval } from 'rxjs';                              // Import för att
 export class GamelogicService {
 
   constructor() {                                           // Konstruktorn startar en timer och kallar på "randomizeBox()" när klockan har startat.
-    interval(100).subscribe(() => {                         // Intervalen kontrollerar hur snabbt moles ska poppa upp.
+    interval(Math.random() * 800 + 200).subscribe(() => {   // Intervalen kontrollerar hur snabbt moles ska poppa upp, använder math.random() för att få en slummässigt tal mellan 800ms och 400ms. Där molen sedan visas.   
       if (this.clockStarted) {
         this.randomizeBox();
       }
@@ -42,6 +42,7 @@ export class GamelogicService {
     if (this.moleCounter >= 3) {                              // Tre stycken moles visas, randomized. 
       return;                                                 // Om moleCounter är över 3 så kör den inte randomizern för att plocka fram en ny mole.
     }
+    
     const randomRow = Math.floor(Math.random() * 5);          
     const randomCell = Math.floor(Math.random() * 5);
     this.EventGrid[randomRow][randomCell] = this.img[0];
@@ -59,7 +60,6 @@ export class GamelogicService {
     if (this.EventGrid[indexRow][indexCell] !== "") {
       this.EventGrid[indexRow][indexCell] = "";
       this.result++;                                         
-      
     } 
   }
 
@@ -84,7 +84,6 @@ export class GamelogicService {
   resetBox() {                                                // Denna tömmer cellen.
     this.EventGrid.forEach((row) => {
       row.fill("")
-  
     })
   }
 
