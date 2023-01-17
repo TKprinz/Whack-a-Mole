@@ -1,2 +1,2 @@
-# Whack A Mole - game 
+# Whack A Mole
 Made with Angular. 
