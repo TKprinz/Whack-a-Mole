@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { GameviewComponent } from './gameview/gameview.component';
-import { GamelogicService } from './gamelogic.service'
+import { GamelogicService } from './gamelogic.service'; 
 
 @NgModule({
   declarations: [
