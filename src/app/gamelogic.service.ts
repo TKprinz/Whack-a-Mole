@@ -7,8 +7,6 @@ import { interval } from 'rxjs';                             // Import för att 
 })
 
 
-
-
 export class GamelogicService {
 
   constructor() {                                           // Konstruktorn startar en timer och kallar på "randomizeBox()" när klockan har startat.
@@ -43,8 +41,15 @@ export class GamelogicService {
       return;                                                 // Om moleCounter är över 3 så kör den inte randomizern för att plocka fram en ny mole.
     }
     
-    const randomRow = Math.floor(Math.random() * 5);          
-    const randomCell = Math.floor(Math.random() * 5);
+    let randomRow = 0;
+    let randomCell = 0;
+
+    do {                                                       // Loopar igenom tills den hittar en plats som är ledig. 
+      randomRow = Math.floor(Math.random() * 5);
+      randomCell = Math.floor(Math.random() * 5);
+      
+    } while (this.EventGrid[randomRow][randomCell] !== '')
+
     this.EventGrid[randomRow][randomCell] = this.img[0];
     this.moleCounter++;
   
